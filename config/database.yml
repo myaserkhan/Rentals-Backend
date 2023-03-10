@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: BackendFinalCapstone_development
+  database: backendfinalcapstone_development
   server: localhost
   username: sajeel
   password: abcd123
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: BackendFinalCapstone_test
+  database: backendfinalcapstone_test
   server: localhost
   username: sajeel
   password: abcd123
@@ -87,6 +87,4 @@ test:
 #
 production:
   <<: *default
-  database: BackendFinalCapstone_production
-  username: BackendFinalCapstone
-  password: <%= ENV["BACKENDFINALCAPSTONE_DATABASE_PASSWORD"] %>
+  database: backendfinalcapstone_production
