@@ -1,4 +1,4 @@
-class CarsController < ApplicationController
+class Api::V1::CarsController < ApplicationController
   before_action :set_car, only: %i[ show update destroy ]
 
   # GET /cars
