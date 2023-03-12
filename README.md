@@ -162,7 +162,7 @@ If you like this project give it a star!
 
 - Microverse ❤️ 
 
-- Credit goes to [Gregoire Vella on Behance](https://www.behance.net/muratk) whose original design was used.
+- Credit goes to [Murat Korkmaz on Behance](https://www.behance.net/muratk) whose original design was used.
 
 <!-- LICENSE -->
 
