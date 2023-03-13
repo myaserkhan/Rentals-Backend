@@ -8,6 +8,10 @@ class Api::V1::UsersController < ApplicationController
     render json: @users
   end
 
+  def new
+    @user = User.new
+  end
+
   # GET /users/1
   def show
     render json: @user
@@ -16,11 +20,16 @@ class Api::V1::UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
+    existing_user = User.find_by(username: @user.username)
 
-    if @user.save
-      render json: @user, status: :created, location: @user
+    if existing_user
+      render json: {message: "User already exists"}, status: :unprocessable_entity
     else
-      render json: @user.errors, status: :unprocessable_entity
+      if @user.save
+        render json: @user, status: :created
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
