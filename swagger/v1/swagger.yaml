@@ -65,6 +65,14 @@ paths:
               - duration
               - imgurl
               - brand
+    get:
+      summary: Retrieves all cars
+      tags:
+      - Cars
+      parameters: []
+      responses:
+        '200':
+          description: List of cars found
   "/api/v1/cars/{id}":
     get:
       summary: Retrieves a car
@@ -96,6 +104,57 @@ paths:
           description: Car deleted successfully
         '404':
           description: car not found
+  "/api/v1/users":
+    post:
+      summary: Creates new user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: User created successfully
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+              required:
+              - name
+              - email
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+              required:
+              - name
+              - email
+  "/api/v1/users/{id}":
+    get:
+      summary: Retrieves a user
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+        '404':
+          description: Please enter correct username
 servers:
 - url: https://{defaultHost}
   variables:

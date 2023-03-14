@@ -3,9 +3,9 @@ class Api::V1::UsersController < ApplicationController
   def show
     if User.exists?(username: params[:id])
       @user = User.find_by(username: params[:id])
-      render json: @user
+      render json: @user, status: :ok
     else
-      render json: { message: 'Please enter correct username' }
+      render json: { message: 'Please enter correct username' }, status: :unprocessable_entity
     end
   end
 

@@ -38,6 +38,16 @@ describe 'Cars API' do
                 run_test!
             end
         end
+
+        get 'Retrieves all cars' do
+            tags 'Cars'
+            produces 'application/json'
+            parameter name: :car, in: :body, type: :string
+
+            response '200', 'List of cars found' do
+                run_test!
+            end
+        end
     end
 
     path '/api/v1/cars/{id}' do

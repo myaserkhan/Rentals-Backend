@@ -4,7 +4,7 @@ class Api::V1::CarsController < ApplicationController
   # GET /cars
   def index
     @cars = Car.all
-    render json: @cars
+    render json: @cars, status: :ok
   end
 
   # GET /cars/1
