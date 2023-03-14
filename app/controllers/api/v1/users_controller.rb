@@ -5,9 +5,8 @@ class Api::V1::UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
       render json: @user
     else
-      render json: {message: "Please enter correct username"}
+      render json: { message: 'Please enter correct username' }
     end
-  
   end
 
   # POST /users
@@ -16,13 +15,11 @@ class Api::V1::UsersController < ApplicationController
     existing_user = User.find_by(username: @user.username)
 
     if existing_user
-      render json: {message: "User already exists"}, status: :unprocessable_entity
+      render json: { message: 'User already exists' }, status: :unprocessable_entity
+    elsif @user.save
+      render json: @user, status: :created
     else
-      if @user.save
-        render json: @user, status: :created
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
