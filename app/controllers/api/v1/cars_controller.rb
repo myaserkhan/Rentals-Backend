@@ -9,7 +9,7 @@ class Api::V1::CarsController < ApplicationController
 
   # GET /cars/1
   def show
-    render json: @car
+    render json: @car, status: :ok
   end
 
   # POST /cars
@@ -25,7 +25,11 @@ class Api::V1::CarsController < ApplicationController
 
   # DELETE /cars/1
   def destroy
-    @car.destroy
+    if @car.destroy
+      render json: { message: 'Car deleted successfully' }, status: :no_content
+    else
+      render json: @car.errors, status: :unprocessable_entity
+    end
   end
 
   private

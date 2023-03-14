@@ -1,0 +1,103 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/cars":
+    post:
+      summary: Creates new car
+      tags:
+      - Cars
+      parameters: []
+      responses:
+        '201':
+          description: Car created successfully
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                  format: float
+                duration:
+                  type: integer
+                imgurl:
+                  type: string
+                brand:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - duration
+              - imgurl
+              - brand
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                  format: float
+                duration:
+                  type: integer
+                imgurl:
+                  type: string
+                brand:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - duration
+              - imgurl
+              - brand
+  "/api/v1/cars/{id}":
+    get:
+      summary: Retrieves a car
+      tags:
+      - Cars
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: car found
+        '404':
+          description: car not found
+    delete:
+      summary: Deletes a car
+      tags:
+      - Cars
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Car deleted successfully
+        '404':
+          description: car not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
