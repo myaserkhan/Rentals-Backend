@@ -4,7 +4,6 @@ class Api::V1::CarsController < ApplicationController
   # GET /cars
   def index
     @cars = Car.all
-
     render json: @cars
   end
 
@@ -18,16 +17,7 @@ class Api::V1::CarsController < ApplicationController
     @car = Car.new(car_params)
 
     if @car.save
-      render json: @car, status: :created, location: @car
-    else
-      render json: @car.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /cars/1
-  def update
-    if @car.update(car_params)
-      render json: @car
+      render json: { message: 'Car created successfully' }, status: :created
     else
       render json: @car.errors, status: :unprocessable_entity
     end

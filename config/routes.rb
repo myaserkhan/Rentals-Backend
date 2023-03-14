@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :reservations
-      resources :cars
       resources :users
+      resources :users do
+        resources :reservations
+      end
+      resources :cars
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

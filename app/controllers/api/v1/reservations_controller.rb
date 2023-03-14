@@ -3,7 +3,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(user_id: params[:user_id])
 
     render json: @reservations
   end
@@ -16,18 +16,8 @@ class Api::V1::ReservationsController < ApplicationController
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
-
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
-    else
-      render json: @reservation.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /reservations/1
-  def update
-    if @reservation.update(reservation_params)
-      render json: @reservation
+      render json: @reservation, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
