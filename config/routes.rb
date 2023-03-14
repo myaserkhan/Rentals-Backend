@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/:username', to: 'users#index'
   namespace :api do
     namespace :v1 do
       resources :users
