@@ -5,12 +5,12 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     @reservations = Reservation.where(user_id: params[:user_id])
 
-    render json: @reservations
+    render json: @reservations, status: :ok
   end
 
   # GET /reservations/1
   def show
-    render json: @reservation
+    render json: @reservation, status: :ok
   end
 
   # POST /reservations
@@ -25,7 +25,11 @@ class Api::V1::ReservationsController < ApplicationController
 
   # DELETE /reservations/1
   def destroy
-    @reservation.destroy
+    if @reservation.destroy
+      render json: { message: 'Reservation deleted successfully' }, status: :no_content
+    else
+      render json: @car.errors, status: :unprocessable_entity
+    end
   end
 
   private

@@ -6,7 +6,7 @@ info:
 paths:
   "/api/v1/cars":
     post:
-      summary: Creates new car
+      summary: New car
       tags:
       - Cars
       parameters: []
@@ -104,6 +104,110 @@ paths:
           description: Car deleted successfully
         '404':
           description: car not found
+  "/api/v1/users/{user_id}/reservations":
+    post:
+      summary: New reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Reservation created successfully
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city_name:
+                  type: string
+                date:
+                  type: string
+                  format: date
+                  description: The date field is in YYYY-MM-DD format
+                car_id:
+                  type: integer
+              required:
+              - city_name
+              - date
+              - car_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                city_name:
+                  type: string
+                date:
+                  type: string
+                  format: date
+                  description: The date field is in YYYY-MM-DD format
+                car_id:
+                  type: integer
+              required:
+              - city_name
+              - date
+              - car_id
+    get:
+      summary: Retrieves all reservations
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of reservations found
+  "/api/v1/users/{user_id}/reservations/{id}":
+    get:
+      summary: Retrieves a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Reservation found
+        '404':
+          description: Reservation not found
+    delete:
+      summary: Deletes a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Reservation deleted successfully
+        '404':
+          description: Reservation not found
   "/api/v1/users":
     post:
       summary: Creates new user
