@@ -3,10 +3,10 @@
 #
 # Examples:
 #
-user1 = User.create!(username: "Sajeel Zafar", email: "sajeelzafar1995@gmail.com")
-user2 = User.create!(username: "Yasir Khan", email: "hopedaphine19@gmail.com")
-user3 = User.create!(username: "Hope Daphine", email: "kiokoj81@gmail.com")
-user4 = User.create!(username: "John Mutisya", email: "khanyaser007@gmail.com")
+user1 = User.create!(username: "SajeelZafar", email: "sajeelzafar1995@gmail.com")
+user2 = User.create!(username: "YasirKhan", email: "hopedaphine19@gmail.com")
+user3 = User.create!(username: "HopeDaphine", email: "kiokoj81@gmail.com")
+user4 = User.create!(username: "JohnMutisya", email: "khanyaser007@gmail.com")
 
 car1 = Car.create!(name: "Mehran", description: "Affordable car", price: 1500, duration: 3, imgurl: "https://cache2.pakwheels.com/system/car_generation_pictures/2873/original/Suzuki_Mehran_2012.jpg?1444111663", brand: "Suzuki")
 car2 = Car.create!(name: "Cultus", description: "Hatchback car", price: 2500, duration: 4, imgurl: "https://cache4.pakwheels.com/system/car_generation_pictures/6014/original/Suzuki_Cultus_-_PNG.png?1635945515", brand: "Suzuki")
