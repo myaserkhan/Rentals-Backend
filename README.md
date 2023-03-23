@@ -126,6 +126,12 @@ In the project directory, you can run:
 - Twitter: [@SajeelZafar6](https://twitter.com/SajeelZafar6)
 - LinkedIn: [Sajeel Zafar](https://www.linkedin.com/in/sajeelzafar/)
 
+👤 **Yasir Khan**
+
+- GitHub: [@myaserkhan](https://github.com/myaserkhan)
+- Twitter: [@khanyaser007](https://twitter.com/khanyaser007)
+- LinkedIn: [Yasir-Khan](https://www.linkedin.com/in/myaserkhan/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
