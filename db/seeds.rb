@@ -1,19 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-user1 = User.create!(username: "Sajeel Zafar", email: "sajeelzafar1995@gmail.com")
-user2 = User.create!(username: "Yasir Khan", email: "hopedaphine19@gmail.com")
-user3 = User.create!(username: "Hope Daphine", email: "kiokoj81@gmail.com")
-user4 = User.create!(username: "John Mutisya", email: "khanyaser007@gmail.com")
+User.create(username: 'juanito', email: 'foo@foo.com', password: 'admin123')
+User.create(username: 'Laylita', email: 'foo0@foo.com', password: 'admin123')
+User.create(username: 'Nelsinito', email: 'foo1@foo.com', password: 'admin123')
+User.create(username: 'Hamzita', email: 'foo2@foo.com', password: 'admin123')
 
-car1 = Car.create!(name: "Mehran", description: "Affordable car", price: 1500, duration: 3, imgurl: "https://cache2.pakwheels.com/system/car_generation_pictures/2873/original/Suzuki_Mehran_2012.jpg?1444111663", brand: "Suzuki")
-car2 = Car.create!(name: "Cultus", description: "Hatchback car", price: 2500, duration: 4, imgurl: "https://cache4.pakwheels.com/system/car_generation_pictures/6014/original/Suzuki_Cultus_-_PNG.png?1635945515", brand: "Suzuki")
-car3 = Car.create!(name: "Corolla", description: "Easy to maintain car", price: 3000, duration: 2, imgurl: "https://toyota-central.com/Assets/images/Vehicle/CorollaX/Exterior4.jpg", brand: "Toyota")
-car4 = Car.create!(name: "Civic", description: "Expensive car with a modern design", price: 3000, duration: 2, imgurl: "https://toyota-central.com/Assets/images/Vehicle/CorollaX/Exterior4.jpg", brand: "Honda")
+Car.create(name: 'Wrangler', brand: 'Jeep', imgUrl: 'https://i.ibb.co/TPSp6yR/9.png', user_id: 4)
+Car.create(name: 'X6', brand: 'BMW', imgUrl: 'https://i.ibb.co/44HhvH9/5.png', user_id: 2)
+Car.create(name: 'Mustang ', brand: 'Ford', imgUrl: 'https://i.ibb.co/hgqn1y6/4.png', user_id: 1)
+Car.create(name: 'IS F 4dr', brand: 'Lexus', imgUrl: 'https://i.ibb.co/Fqd9Z73/3.png', user_id: 3)
+Car.create(name: 'Cherokee', brand: 'Jeep', imgUrl: 'https://i.ibb.co/0BM7Pnd/2.png', user_id: 3)
+Car.create(name: 'Expedition ', brand: 'Ford', imgUrl: 'https://i.ibb.co/hdWCftm/1.png', user_id: 2)
 
-reservation1 = Reservation.create!(user: user1, car: car1, city_name: "Islamabad", date: "2023-11-03")
-reservation2 = Reservation.create!(user: user2, car: car2, city_name: "Karachi", date: "2023-11-04")
-reservation3 = Reservation.create!(user: user3, car: car1, city_name: "Lahore", date: "2023-11-05")
-reservation4 = Reservation.create!(user: user4, car: car4, city_name: "Peshawar", date: "2023-11-06")
+Description.create(insurance_fee: 3, price_daily: 5, price_monthly: 150, car_id: 1, color: 'white')
+Description.create(insurance_fee: 3, price_daily: 0.5, price_monthly: 15, car_id: 4, color: 'white')
+Description.create(insurance_fee: 3, price_daily: 5, price_monthly: 150, car_id: 2, color: 'white')
+Description.create(insurance_fee: 3, price_daily: 5, price_monthly: 150, car_id: 3, color: 'white')
+Description.create(insurance_fee: 3, price_daily: 20, price_monthly: 600, car_id: 5, color: 'white')
+Description.create(insurance_fee: 3, price_daily: 10, price_monthly: 300, car_id: 6, color: 'white')
+
+City.create(name: 'Guatemala')
+City.create(name: 'Tashkent')
+City.create(name: 'Morrocco')
+City.create(name: 'Palo alto')
+City.create(name: 'Rome')
+City.create(name: 'Hamburg')
+
+Reservation.create(start_date: '2020-10-08', end_date: '2020-10-10', user_id: 1, car_id: 1, city_id: 1)
+Reservation.create(start_date: '2020-10-08', end_date: '2020-10-10', user_id: 2, car_id: 2, city_id: 2)
+Reservation.create(start_date: '2020-10-08', end_date: '2020-10-10', user_id: 3, car_id: 3, city_id: 3)
+Reservation.create(start_date: '2020-10-08', end_date: '2020-10-10', user_id: 4, car_id: 4, city_id: 4)
+Reservation.create(start_date: '2020-10-08', end_date: '2020-10-10', user_id: 2, car_id: 5, city_id: 5)
+Reservation.create(start_date: '2020-10-08', end_date: '2020-10-10', user_id: 3, car_id: 6, city_id: 6)
