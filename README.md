@@ -101,7 +101,7 @@ To setup the project follow the steps:
 To run tests, run the following command:
 
 ```
-  rspec
+  rake rswag
 ```
 
 ### Available Scripts
