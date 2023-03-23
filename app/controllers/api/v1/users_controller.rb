@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
   def login
     if params[:user].present?
       user = User.find_by(email: params[:user][:email])
-  
+
       if user&.authenticate(params[:user][:password])
         token = encode_token({ user_id: user.id })
         render json: { user: { username: user.username, email: user.email, id: user.id }, token: "Bearer #{token}" },
@@ -29,7 +29,7 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: { error: 'Missing user parameters' }, status: 400
     end
-  end  
+  end
 
   private
 
